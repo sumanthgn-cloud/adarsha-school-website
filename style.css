@@ -1557,20 +1557,89 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
   .mgmt-split { grid-template-columns: 1fr; gap: 48px; }
   .contact-split { grid-template-columns: 1fr; gap: 48px; }
   .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  .bridge-split { grid-template-columns: 1fr; gap: 40px; }
 }
 
 @media (max-width: 768px) {
-  .mission-grid { grid-template-columns: 1fr; }
-  .updates-grid { grid-template-columns: 1fr; }
-  .exp-grid { grid-template-columns: 1fr; grid-auto-rows: 280px; }
-  .exp-card.wide, .exp-card.tall { grid-column: span 1; grid-row: span 1; }
-  .exp-info { transform: translateY(0) !important; }
-  .acad-grid { grid-template-columns: repeat(2, 1fr); }
-  .g-grid { grid-template-columns: repeat(2, 1fr); }
-  .g-cap { opacity: 1; transform: translateY(0); }
+  /* ── Tighten ALL section padding for mobile flow ── */
+  :root { --section-y: 36px; }
+
+  /* ── Kill dead space: sections flow into each other ── */
+  .about { padding: 36px 0 28px; }
+  .values-strip { padding: 20px 16px; }
+  .mission { padding: 28px 0; }
+  .management { padding: 28px 0; }
+  .experience { padding: 32px 0; }
+  .bridge { padding: 32px 0; }
+  .academics { padding: 28px 0; }
+  .impact { padding: 28px 0; }
+  .gallery { padding: 28px 0; }
+  .community { padding: 28px 0; }
+  .updates-collapsible { padding: 24px 0 28px; }
+  .admission-cta { padding: 32px 0; }
+  .contact { padding: 28px 0; }
+
+  /* ── Section headers tighter on mobile ── */
+  .section-head { margin-bottom: 24px; }
+
+  /* ── Bridge: single column, tighter image ── */
+  .bridge-split { grid-template-columns: 1fr; gap: 24px; }
+  .bridge-img { aspect-ratio: 16/10; border-radius: 8px; }
+  .bridge-exchange { grid-template-columns: 1fr; gap: 12px; }
+  .bridge-box { padding: 18px 16px; }
+  .bridge-lede { font-size: 0.92rem; margin-bottom: 12px; }
+  .bridge .bridge-hero-title { font-size: clamp(1.5rem, 6vw, 2rem); margin: 8px 0 14px; }
+  .bridge-pill { margin-bottom: 18px; }
+  .bridge-footnote { margin-top: 10px; }
+
+  /* ── Experience grid ── */
+  .exp-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; gap: 8px; }
+  .exp-card.wide { grid-column: span 2; }
+  .exp-card.tall { grid-column: span 1; grid-row: span 1; }
+  .exp-info { transform: translateY(0) !important; padding: 16px; }
+  .exp-info h3 { font-size: 0.9rem; }
+  .exp-info p { font-size: 0.75rem; }
+
+  /* ── Mission cards ── */
+  .mission-grid { grid-template-columns: 1fr; gap: 16px; }
+  .mission-card { padding: 28px 24px; }
+
+  /* ── Management ── */
+  .portrait-wrap img { aspect-ratio: 4/3; }
+  .mgmt-split { gap: 28px; }
+  .mgmt-message blockquote { font-size: 1.1rem; padding-left: 16px; }
+
+  /* ── Updates ── */
+  .updates-grid { grid-template-columns: 1fr; gap: 12px; }
+  .update-card { padding: 24px 20px; }
+
+  /* ── Gallery ── */
+  .g-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .g-cap { opacity: 1; transform: translateY(0); font-size: 0.6rem; padding: 8px 10px; }
+
+  /* ── Impact ── */
+  .impact-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .impact-card { padding: 20px 16px; }
+
+  /* ── Academics ── */
+  .acad-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* ── Community accordion ── */
+  .acc-trigger { padding: 18px 16px; }
+
+  /* ── Contact ── */
+  .contact-split { gap: 24px; }
+  .contact-map iframe { height: 220px; }
+
+  /* ── Forms ── */
   .form-row { grid-template-columns: 1fr; }
+  .cta-box { padding: 32px 20px; }
+
+  /* ── Mobile CTA & footer ── */
   .mobile-cta { display: flex; }
-  .footer { padding-bottom: 80px; }
+  .footer { padding: 36px 24px 80px; }
+
+  /* ── Navbar ── */
   .navbar { padding: 12px 20px; }
   .navbar.scrolled { padding: 8px 20px; }
   .nav-logo span { display: none; }
@@ -1579,8 +1648,26 @@ h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
 @media (max-width: 480px) {
   h2 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
   .hero h1 { font-size: clamp(2.05rem, 9vw, 3.1rem); }
+
+  /* Even tighter on small phones */
+  .about { padding: 28px 0 20px; }
+  .mission { padding: 24px 0; }
+  .experience { padding: 24px 0; }
+  .bridge { padding: 24px 0; }
+  .gallery { padding: 24px 0; }
+  .impact { padding: 24px 0; }
+
+  .exp-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 170px; gap: 6px; }
+  .exp-card.wide { grid-column: span 2; height: 200px; }
+
   .impact-grid { grid-template-columns: 1fr; }
-  .g-grid { grid-template-columns: 1fr; gap: 12px; }
-  .about-stats { gap: 8px; }
-  .stat-card { padding: 24px 16px; }
+  .g-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+  .about-stats { gap: 6px; }
+  .stat-card { padding: 20px 12px; }
+  .stat-num { font-size: clamp(2rem, 8vw, 2.5rem); }
+
+  .bridge-exchange { gap: 8px; }
+  .bridge-box { padding: 14px 12px; }
+  .bridge-box h3 { font-size: 0.9rem; }
+  .bridge-box p { font-size: 0.8rem; }
 }
