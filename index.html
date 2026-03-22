@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adarsha Higher Primary School Belakavadi | Best School in Mandya District</title>
-<meta name="description" content="Adarsha HPS Belakavadi — top-rated Kannada medium school in Mandya district since 1987. Admissions open for Pre-Primary to Grade 7. Call +91 76764 89193.">
+<meta name="description" content="Adarsha HPS Belakavadi — enroll Pre-Primary to Grade 7 (Kannada medium), partner to support rural learners, or visit through The Bridge exchange. Mandya District since 1987. +91 76764 89193.">
 <meta name="keywords" content="best school in Mandya, school in Belakavadi, Kannada medium school Mandya, primary school Malavally taluk, AHPS Belakavadi, Adarsha school">
 <link rel="canonical" href="https://adarshaschool.in/">
 <link rel="icon" href="images/favicon.png" type="image/png">
@@ -12,7 +12,7 @@
 <!-- Open Graph -->
 <meta property="og:title" content="Adarsha Higher Primary School Belakavadi | Best School in Mandya">
 <meta property="og:description" content="Empowering rural dreams through quality education since 1987. Pre-Primary to Grade 7. Kannada medium.">
-<meta property="og:image" content="images/hero/school-building.webp">
+<meta property="og:image" content="images/hero/school-hero.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_IN">
 
@@ -86,6 +86,8 @@
 </head>
 <body>
 
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
+
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
 <div class="ticker-track">
@@ -112,15 +114,11 @@
 <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">×</button>
 <nav class="menu-nav">
 <a href="#home" onclick="closeMenu()">Home</a>
-<a href="#about" onclick="closeMenu()">Our Story</a>
-<a href="#mission" onclick="closeMenu()">Mission</a>
-<a href="#management" onclick="closeMenu()">Management</a>
-<a href="#experience" onclick="closeMenu()">Campus</a>
-<a href="#academics" onclick="closeMenu()">Academics</a>
-<a href="#community" onclick="closeMenu()">Community</a>
-<a href="#gallery" onclick="closeMenu()">Gallery</a>
-<a href="#admissions" onclick="closeMenu()">Admissions</a>
-<a href="#contact" onclick="closeMenu()">Contact</a>
+<a href="#about" onclick="closeMenu()"><span class="en-inline">About School</span><span class="kn-inline">ನಮ್ಮ ಕಥೆ</span></a>
+<a href="#experience" onclick="closeMenu()"><span class="en-inline">Campus Experience</span><span class="kn-inline">ಕ್ಯಾಂಪಸ್</span></a>
+<a href="#bridge" onclick="closeMenu()"><span class="en-inline">The Bridge</span><span class="kn-inline">ಸೇತುವೆ</span></a>
+<a href="#gallery" onclick="closeMenu()"><span class="en-inline">Gallery</span><span class="kn-inline">ಗ್ಯಾಲರಿ</span></a>
+<a href="#admissions" onclick="closeMenu()" class="nav-cta-link"><span class="en-inline">Admissions & Contact</span><span class="kn-inline">ಪ್ರವೇಶ & ಸಂಪರ್ಕ</span></a>
 </nav>
 <div class="menu-footer">
 <p>+91 76764 89193</p>
@@ -131,23 +129,41 @@
 
 <main>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero" id="home">
-<img src="images/hero/school-building.webp" alt="Adarsha Higher Primary School building in Belakavadi, Mandya District" class="hero-bg" loading="eager">
-<div class="hero-overlay"></div>
-<div class="hero-body">
-<span class="hero-badge anim-1">Since 1987 · Belakavadi, Mandya District, Karnataka</span>
-<h1 class="anim-2">
+<!-- ═══ HERO ═══ Mobile-first: photo + solid copy panel (readable, fast) ═══ -->
+<section class="hero" id="home" aria-labelledby="hero-heading">
+<div class="hero-layout">
+<figure class="hero-visual">
+<div class="hero-visual-frame">
+<img
+  src="images/hero/school-hero.png"
+  alt="Adarsha Higher Primary School building in Belakavadi, Mandya District"
+  class="hero-photo"
+  width="1024"
+  height="682"
+  fetchpriority="high"
+  decoding="async"
+  loading="eager"
+>
+</div>
+<p class="hero-photo-cap"><span class="en-inline">Our campus · Belakavadi</span><span class="kn-inline">ನಮ್ಮ ಶಾಲಾ ಪ್ರಾಂಗಣ · ಬೆಳಕವಾಡಿ</span></p>
+</figure>
+<div class="hero-copy">
+<div class="hero-copy-inner">
+<span class="hero-badge anim-1">Belakavadi, Mandya District</span>
+<h1 class="anim-2" id="hero-heading">
 <span class="en-text">Adarsha Higher<br>Primary School<br><em>Belakavadi</em></span>
 <span class="kn-text">ಆದರ್ಶ ಹಿರಿಯ<br>ಪ್ರಾಥಮಿಕ ಶಾಲೆ<br><em>ಬೆಳಕವಾಡಿ</em></span>
 </h1>
 <p class="hero-sub anim-3">
-<span class="en-text">Empowering rural dreams through quality education since 1987. Where every child's potential is nurtured with discipline, values, and love.</span>
-<span class="kn-text">1987 ರಿಂದ ಗ್ರಾಮೀಣ ಕನಸುಗಳನ್ನು ಗುಣಮಟ್ಟದ ಶಿಕ್ಷಣದ ಮೂಲಕ ಸಾಕಾರಗೊಳಿಸುತ್ತಿದ್ದೇವೆ.</span>
+<span class="en-text">Empowering rural dreams through quality education. From the heart of Belakavadi to the world.</span>
+<span class="kn-text">ಬೆಳಕವಾಡಿಯ ಹೃದಯದಿಂದ ಜಗತ್ತಿಗೆ — ಗುಣಮಟ್ಟದ ಶಿಕ್ಷಣದ ಮೂಲಕ ಗ್ರಾಮೀಣ ಕನಸುಗಳ ಸಾಕಾರ.</span>
 </p>
 <div class="hero-ctas anim-4">
 <a href="#admissions" class="btn-primary"><span class="en-inline">Apply for Admission →</span><span class="kn-inline">ಪ್ರವೇಶಕ್ಕೆ ಅರ್ಜಿ →</span></a>
-<a href="https://wa.me/917676489193?text=Hello,%20I'd%20like%20to%20book%20a%20campus%20visit" target="_blank" class="btn-outline"><span class="en-inline">Book a Campus Visit</span><span class="kn-inline">ಶಾಲಾ ಭೇಟಿ ಕಾಯ್ದಿರಿಸಿ</span></a>
+<a href="https://wa.me/917676489193?text=Hello,%20I'd%20like%20to%20book%20a%20campus%20visit" target="_blank" rel="noopener noreferrer" class="btn-outline btn-outline--on-dark"><span class="en-inline">Book a Campus Visit</span><span class="kn-inline">ಶಾಲಾ ಭೇಟಿ ಕಾಯ್ದಿರಿಸಿ</span></a>
+</div>
+<a href="#about" class="hero-scroll-hint"><span class="en-inline">Discover our story</span><span class="kn-inline">ನಮ್ಮ ಕಥೆ ತಿಳಿಯಿರಿ</span><span class="hero-scroll-icon" aria-hidden="true"></span></a>
+</div>
 </div>
 </div>
 </section>
@@ -209,22 +225,6 @@
 </div>
 </section>
 
-<!-- ═══ UPDATES ═══ -->
-<section class="updates" id="updates">
-<div class="contain">
-<div class="section-head reveal">
-<span class="label">Latest News</span>
-<h2 class="en-text">Recent Updates</h2>
-<h2 class="kn-text">ಇತ್ತೀಚಿನ ಮಾಹಿತಿ</h2>
-</div>
-<div class="updates-grid">
-<div class="update-card reveal"><span class="update-tag">Admissions</span><time>April 2026</time><h4 class="en-text">Admissions Open for 2026-27</h4><h4 class="kn-text">2026-27 ಕ್ಕೆ ಪ್ರವೇಶಾತಿ ತೆರೆದಿದೆ</h4><p class="en-text">Pre-Primary to Grade 7. Visit the school office or contact us on WhatsApp.</p><p class="kn-text">ಪೂರ್ವ-ಪ್ರಾಥಮಿಕದಿಂದ 7ನೇ ತರಗತಿ. ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ.</p></div>
-<div class="update-card reveal"><span class="update-tag">Community</span><time>March 2026</time><h4 class="en-text">Monthly Parent-Teacher Meeting</h4><h4 class="kn-text">ಮಾಸಿಕ ಪೋಷಕ-ಶಿಕ್ಷಕ ಸಭೆ</h4><p class="en-text">Parents are invited to review student progress and plan upcoming events.</p><p class="kn-text">ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರಗತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪೋಷಕರನ್ನು ಆಹ್ವಾನಿಸಲಾಗಿದೆ.</p></div>
-<div class="update-card reveal"><span class="update-tag">Events</span><time>March 2026</time><h4 class="en-text">Annual Day Preparations</h4><h4 class="kn-text">ವಾರ್ಷಿಕೋತ್ಸವ ಸಿದ್ಧತೆ</h4><p class="en-text">Students selected for cultural performances should attend practice sessions.</p><p class="kn-text">ಸಾಂಸ್ಕೃತಿಕ ಪ್ರದರ್ಶನಗಳಿಗೆ ಆಯ್ಕೆಯಾದ ವಿದ್ಯಾರ್ಥಿಗಳು ಅಭ್ಯಾಸ ಮಾಡಬೇಕು.</p></div>
-</div>
-</div>
-</section>
-
 <!-- ═══ MANAGEMENT ═══ -->
 <section class="management" id="management">
 <div class="contain">
@@ -269,6 +269,52 @@
 <div class="exp-card reveal"><img src="images/gallery/IND-GAMES.jpeg" alt="Teamwork activities at Adarsha Primary School" loading="lazy"><div class="exp-info"><h3 class="kn-text">ಒಗ್ಗಟ್ಟಿನ ಮೂಲಕ ವ್ಯಕ್ತಿತ್ವ ನಿರ್ಮಾಣ</h3><p class="en-text">Building character through teamwork.</p></div></div>
 <div class="exp-card wide reveal"><img src="images/gallery/LIBRARY.jpeg" alt="School library with 430 books at Adarsha HPS Belakavadi" loading="lazy"><div class="exp-info"><h3 class="kn-text">ಜ್ಞಾನದ ಭಂಡಾರ — 430+ ಪುಸ್ತಕಗಳು</h3><p class="en-text">A treasure house of 430+ books for curious minds.</p></div></div>
 <div class="exp-card reveal"><img src="images/gallery/drinking-water.jpg" alt="Clean drinking water facility Adarsha School" loading="lazy"><div class="exp-info"><h3 class="kn-text">ಶುದ್ಧ ಕುಡಿಯುವ ನೀರು</h3><p class="en-text">Clean drinking water for every child, every day.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ═══ THE BRIDGE: mutual global ↔ village exchange ═══ -->
+<section class="bridge" id="bridge" aria-label="The Bridge global exchange program">
+<div class="contain">
+<div class="bridge-split">
+<div class="bridge-visual reveal">
+<img src="images/gallery/bridge-exchange.png" alt="Visitors and students explore a world map together at Adarsha School, Belakavadi — mutual learning and global exchange" class="bridge-img" width="1024" height="682" loading="lazy">
+<div class="bridge-tags" aria-label="Themes">
+<span>#MandyaCulture</span>
+<span>#MutualLearning</span>
+<span>#GlobalVillage</span>
+</div>
+</div>
+<div class="bridge-copy reveal">
+<span class="label en-text">The Bridge · Exchange Horizons</span>
+<span class="label kn-text">ಸೇತುವೆ · ವಿನಿಮಯ ದೃಷ್ಟಿಕೋನ</span>
+<h2 class="bridge-hero-title en-text">Bring your skills.<br>Leave with <em>our stories.</em></h2>
+<h2 class="bridge-hero-title kn-text">ನಿಮ್ಮ ಕೌಶಲ್ಯ ತನ್ನಿ.<br><em>ನಮ್ಮ ಕಥೆಗಳೊಂದಿಗೆ</em> ಹಿಂತಿರುಗಿ.</h2>
+<p class="bridge-lede en-text">We invite curious minds to Belakavadi — engineers, researchers, backpackers, artists. This is not charity: it is <strong>mutual learning</strong>. You share global perspective, English, code, or craft; our children share Mandya roots, farming know-how, playground games (Chinni Dandu, Lagori), and the warmth of a real village classroom.</p>
+<p class="bridge-lede kn-text">ಬೆಳಕವಾಡಿಗೆ ಕುತೂಹಲದ ಮನಸ್ಸುಗಳನ್ನು ಆಹ್ವಾನಿಸುತ್ತೇವೆ. ಇದು ದಾನಧರ್ಮವಲ್ಲ — <strong>ಪರಸ್ಪರ ಕಲಿಕೆ</strong>. ನೀವು ಜಾಗತಿಕ ದೃಷ್ಟಿಕೋನ, ಇಂಗ್ಲಿಷ್, ಕೋಡಿಂಗ್ ಹಂಚಿಕೊಳ್ಳಿ; ನಮ್ಮ ಮಕ್ಕಳು ಮಂಡ್ಯದ ಬೇರುಗಳು, ಕೃಷಿ ಅರಿವು, ಗ್ರಾಮೀಣ ಆಟಗಳು ಮತ್ತು ನಿಜವಾದ ತರಗತಿಯ ಬೆಚ್ಚಗನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತಾರೆ.</p>
+<div class="bridge-pill en-text">Two-way street · Village hub · Open doors</div>
+<div class="bridge-pill kn-text">ಎರಡು ದಿಕ್ಕಿನ ಮಾರ್ಗ · ಹಳ್ಳಿ ಕೇಂದ್ರ · ತೆರೆದ ಬಾಗಿಲು</div>
+<div class="bridge-exchange">
+<div class="bridge-box reveal">
+<h3 class="en-text">What you offer</h3>
+<h3 class="kn-text">ನೀವು ನೀಡುವುದು</h3>
+<p class="en-text">Workshops, stories from your world, career glimpses, English conversation, STEM or digital skills — shaped around our timetable and age groups.</p>
+<p class="kn-text">ಕಾರ್ಯಾಗಾರಗಳು, ನಿಮ್ಮ ಪ್ರಪಂಚದ ಕಥೆಗಳು, ಉದ್ಯೋಗದ ಚುಕ್ಕೆಗಳು, ಇಂಗ್ಲಿಷ್ ಸಂವಾದ, ವಿಜ್ಞಾನ ಅಥವಾ ಡಿಜಿಟಲ್ ಕೌಶಲ್ಯ — ನಮ್ಮ ವೇಳಾಪಟ್ಟಿ ಮತ್ತು ವಯಸ್ಸಿಗೆ ಅನುಗುಣವಾಗಿ.</p>
+</div>
+<div class="bridge-box reveal">
+<h3 class="en-text">What you take away</h3>
+<h3 class="kn-text">ನೀವು ಪಡೆಯುವುದು</h3>
+<p class="en-text">Local farming rhythm, festival life, children’s games, Kannada phrases, and the rare honesty of a rural school that has welcomed learners since 1987.</p>
+<p class="kn-text">ಸ್ಥಳೀಯ ಕೃಷಿ ಲಯ, ಹಬ್ಬಗಳ ಜೀವನ, ಮಕ್ಕಳ ಆಟಗಳು, ಕನ್ನಡ ಪದಗಳು ಮತ್ತು 1987 ರಿಂದ ಕಲಿಯುವವರನ್ನು ಸ್ವಾಗತಿಸುತ್ತಿರುವ ಗ್ರಾಮೀಣ ಶಾಲೆಯ ನಿಷ್ಕಪಟ ಸ್ನೇಹ.</p>
+</div>
+</div>
+<button type="button" class="btn-bridge" id="bridgeVisitOpen" onclick="openBridgeVisitModal()">
+<span class="en-inline">Apply to visit & teach →</span>
+<span class="kn-inline">ಭೇಟಿ ಮತ್ತು ಬೋಧನೆಗೆ ಅರ್ಜಿ →</span>
+</button>
+<p class="bridge-footnote en-text">Short visits, scheduled with the school. We reply on WhatsApp within a few days.</p>
+<p class="bridge-footnote kn-text">ಚಿಕ್ಕ ಭೇಟಿಗಳು, ಶಾಲೆಯೊಂದಿಗೆ ನಿಗದಿಪಡಿಸಲಾಗುತ್ತದೆ. ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಒಂದೆರಡು ದಿನಗಳಲ್ಲಿ ಪ್ರತಿಕ್ರಿಯೆ.</p>
+</div>
 </div>
 </div>
 </section>
@@ -383,6 +429,33 @@
 </div>
 </section>
 
+<!-- ═══ UPDATES (collapsible, above admissions) ═══ -->
+<section class="updates updates-collapsible" id="updates" aria-label="Latest news and updates">
+<div class="contain">
+<button type="button" class="updates-toggle reveal" id="updatesToggle" aria-expanded="false" aria-controls="updatesPanel">
+<span class="updates-toggle-main">
+<span class="label">Latest News</span>
+<span class="updates-toggle-titles">
+<strong class="en-text">Recent updates</strong>
+<strong class="kn-text">ಇತ್ತೀಚಿನ ಮಾಹಿತಿ</strong>
+</span>
+<span class="updates-preview">
+<span class="en-inline">Admissions · PTM · Annual Day — tap to read</span>
+<span class="kn-inline">ಪ್ರವೇಶ · ಪೋಷಕ ಸಭೆ · ವಾರ್ಷಿಕೋತ್ಸವ — ಓದಲು ಒತ್ತಿ</span>
+</span>
+</span>
+<span class="updates-chevron" aria-hidden="true"></span>
+</button>
+<div class="updates-panel" id="updatesPanel" role="region" aria-label="School news and notices" aria-hidden="true" hidden>
+<div class="updates-grid">
+<div class="update-card reveal"><span class="update-tag">Sports</span><time>September 2026</time><h4 class="en-text">Annual Sports Meet</h4><h4 class="kn-text">ವಾರ್ಷಿಕ ಕ್ರೀಡಾಕೂಟ</h4><p class="en-text">Students are preparing for taluk-level competitions on our campus grounds.</p><p class="kn-text">ತಾಲೂಕು ಮಟ್ಟದ ಸ್ಪರ್ಧೆಗಳಿಗೆ ನಮ್ಮ ಶಾಲಾ ಮೈದಾನದಲ್ಲಿ ಅಭ್ಯಾಸ.</p></div>
+<div class="update-card reveal"><span class="update-tag">Community</span><time>March 2026</time><h4 class="en-text">Monthly Parent-Teacher Meeting</h4><h4 class="kn-text">ಮಾಸಿಕ ಪೋಷಕ-ಶಿಕ್ಷಕ ಸಭೆ</h4><p class="en-text">Parents are invited to review student progress and plan upcoming events.</p><p class="kn-text">ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರಗತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪೋಷಕರನ್ನು ಆಹ್ವಾನಿಸಲಾಗಿದೆ.</p></div>
+<div class="update-card reveal"><span class="update-tag">Events</span><time>March 2026</time><h4 class="en-text">Annual Day Preparations</h4><h4 class="kn-text">ವಾರ್ಷಿಕೋತ್ಸವ ಸಿದ್ಧತೆ</h4><p class="en-text">Students selected for cultural performances should attend practice sessions.</p><p class="kn-text">ಸಾಂಸ್ಕೃತಿಕ ಪ್ರದರ್ಶನಗಳಿಗೆ ಆಯ್ಕೆಯಾದ ವಿದ್ಯಾರ್ಥಿಗಳು ಅಭ್ಯಾಸ ಮಾಡಬೇಕು.</p></div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ═══ ADMISSION FORM ═══ -->
 <section class="admission-cta" id="admissions">
 <div class="contain">
@@ -453,6 +526,8 @@
 <p class="footer-copy">© 2026 Adarsha HPS Belakavadi. All rights reserved.</p>
 </footer>
 
+
+
 <!-- MOBILE CTA -->
 <div class="mobile-cta">
 <a href="https://wa.me/917676489193?text=Hello%20Adarsha%20School" target="_blank" class="mcta wa">WhatsApp</a>
@@ -463,6 +538,28 @@
 <div class="lightbox" id="lightbox">
 <button class="lb-close" onclick="closeLightbox()" aria-label="Close lightbox">×</button>
 <img id="lbImg" src="" alt="">
+</div>
+
+<!-- BRIDGE VISIT MICRO-MODAL -->
+<div class="visit-modal" id="visitBridgeModal" role="dialog" aria-modal="true" aria-label="Apply to visit and teach" hidden>
+<div class="visit-modal-backdrop" onclick="closeBridgeVisitModal()" role="presentation"></div>
+<div class="visit-modal-panel">
+<button type="button" class="visit-modal-close" onclick="closeBridgeVisitModal()" aria-label="Close">×</button>
+<p class="visit-modal-kicker en-text">The Bridge · Residency-style request</p>
+<p class="visit-modal-kicker kn-text">ಸೇತುವೆ · ಭೇಟಿ ವಿನಂತಿ</p>
+<p class="visit-modal-lede en-text">Four fields. We’ll coordinate dates and expectations over WhatsApp — human, not bureaucratic.</p>
+<p class="visit-modal-lede kn-text">ನಾಲ್ಕು ಖಾನೆಗಳು. ದಿನಾಂಕ ಮತ್ತು ನಿರೀಕ್ಷೆಗಳನ್ನು ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಮಾನವೀಯವಾಗಿ ಸಮನ್ವಯಿಸುತ್ತೇವೆ.</p>
+<form class="visit-form" id="bridgeVisitForm" onsubmit="submitBridgeVisit(event)">
+<label class="visit-field"><span class="en-inline">Name</span><span class="kn-inline">ಹೆಸರು</span><input type="text" name="bv_name" required autocomplete="name" placeholder="Your name"></label>
+<label class="visit-field"><span class="en-inline">Profession / role</span><span class="kn-inline">ವೃತ್ತಿ / ಪಾತ್ರ</span><input type="text" name="bv_role" required autocomplete="organization-title" placeholder="e.g. Software engineer, PhD researcher"></label>
+<label class="visit-field visit-field-grow"><span class="en-inline">What you’d like to share or teach</span><span class="kn-inline">ಹಂಚಿಕೊಳ್ಳಲು / ಬೋಧಿಸಲು ಇಚ್ಛಿಸುವುದು</span><textarea name="bv_teach" rows="3" required placeholder="e.g. 90 min intro to Python, English games for Grade 5…"></textarea></label>
+<label class="visit-field"><span class="en-inline">WhatsApp number</span><span class="kn-inline">ವಾಟ್ಸಾಪ್ ಸಂಖ್ಯೆ</span><input type="tel" name="bv_wa" required autocomplete="tel" placeholder="+91…"></label>
+<div class="visit-form-actions">
+<button type="submit" class="btn-primary"><span class="en-inline">Send to school on WhatsApp →</span><span class="kn-inline">ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಕಳುಹಿಸಿ →</span></button>
+<button type="button" class="btn-visit-cancel" onclick="closeBridgeVisitModal()"><span class="en-inline">Cancel</span><span class="kn-inline">ರದ್ದು</span></button>
+</div>
+</form>
+</div>
 </div>
 
 <script src="script.js"></script>

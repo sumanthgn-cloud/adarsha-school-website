@@ -24,14 +24,24 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-// ── Navbar scroll ──
+// ── Navbar scroll + thin top progress line ──
 const navbar = document.getElementById('navbar');
+const scrollProgressFill = document.getElementById('scrollProgressFill');
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
   if (y > 80) navbar.classList.add('scrolled');
   else navbar.classList.remove('scrolled');
   lastScroll = y;
+  if (scrollProgressFill) {
+    const doc = document.documentElement;
+    const body = document.body;
+    const scrollHeight = Math.max(body.scrollHeight, doc.scrollHeight);
+    const view = window.innerHeight;
+    const maxScroll = Math.max(scrollHeight - view, 1);
+    const pct = Math.min(100, (y / maxScroll) * 100);
+    scrollProgressFill.style.width = pct + '%';
+  }
 }, { passive: true });
 
 // ── Scroll Reveal ──
@@ -40,7 +50,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       // Stagger siblings for grid items
-      const delay = entry.target.closest('.exp-grid, .g-grid, .acad-grid, .impact-grid, .updates-grid, .mission-grid, .about-stats')
+      const delay = entry.target.closest('.exp-grid, .g-grid, .acad-grid, .impact-grid, .updates-grid, .mission-grid, .about-stats, .bridge-exchange, .bridge-split')
         ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 80
         : 0;
       setTimeout(() => {
@@ -95,10 +105,58 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) closeLightbox();
 });
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
+  if (e.key !== 'Escape') return;
+  const lb = document.getElementById('lightbox');
+  const vm = document.getElementById('visitBridgeModal');
+  const cb = document.getElementById('connectBanner');
+  if (lb && lb.classList.contains('show')) closeLightbox();
+  else if (vm && !vm.hasAttribute('hidden')) closeBridgeVisitModal();
+  else if (cb && cb.classList.contains('is-open')) dismissConnectBanner();
 });
 
+function openBridgeVisitModal() {
+  const m = document.getElementById('visitBridgeModal');
+  if (!m) return;
+  m.removeAttribute('hidden');
+  document.body.style.overflow = 'hidden';
+  closeMenu();
+  const first = m.querySelector('input[name="bv_name"]');
+  if (first) setTimeout(() => first.focus(), 80);
+}
+
+function closeBridgeVisitModal() {
+  const m = document.getElementById('visitBridgeModal');
+  if (!m || m.hasAttribute('hidden')) return;
+  m.setAttribute('hidden', '');
+  document.body.style.overflow = '';
+}
+
+function submitBridgeVisit(e) {
+  e.preventDefault();
+  const f = e.target;
+  const name = f.bv_name.value.trim();
+  const role = f.bv_role.value.trim();
+  const teach = f.bv_teach.value.trim();
+  const wa = f.bv_wa.value.trim();
+  const text =
+    `Hello Adarsha School,\n\n` +
+    `I'm applying for The Bridge (visit & teach exchange).\n\n` +
+    `Name: ${name}\nProfession / role: ${role}\nWhat I'd like to share: ${teach}\nWhatsApp: ${wa}`;
+  window.open(`https://wa.me/917676489193?text=${encodeURIComponent(text)}`, '_blank');
+  closeBridgeVisitModal();
+  f.reset();
+}
+
 // ── Smooth Scroll ──
+function setUpdatesPanelOpen(open) {
+  const btn = document.getElementById('updatesToggle');
+  const panel = document.getElementById('updatesPanel');
+  if (!btn || !panel) return;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  panel.toggleAttribute('hidden', !open);
+  panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const id = anchor.getAttribute('href');
@@ -106,9 +164,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(id);
     if (target) {
       e.preventDefault();
+      if (id === '#updates') setUpdatesPanelOpen(true);
       const offset = 60;
-      const pos = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: pos, behavior: 'smooth' });
+      const doScroll = () => {
+        const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: pos, behavior: 'smooth' });
+      };
+      // #updates: measure after panel is visible so scroll target height is correct
+      if (id === '#updates') requestAnimationFrame(() => requestAnimationFrame(doScroll));
+      else doScroll();
     }
   });
 });
@@ -123,6 +187,23 @@ if (heroBg) {
     }
   }, { passive: true });
 }
+
+// ── Updates collapsible (Latest News) ──
+(function () {
+  const btn = document.getElementById('updatesToggle');
+  const panel = document.getElementById('updatesPanel');
+  if (!btn || !panel) return;
+
+  btn.addEventListener('click', () => {
+    setUpdatesPanelOpen(btn.getAttribute('aria-expanded') !== 'true');
+  });
+
+  function openFromHash() {
+    if (window.location.hash === '#updates') setUpdatesPanelOpen(true);
+  }
+  window.addEventListener('load', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
+})();
 
 // ── Community Accordion ──
 document.querySelectorAll('.acc-trigger').forEach(trigger => {
@@ -146,6 +227,34 @@ document.querySelectorAll('.acc-trigger').forEach(trigger => {
     }
   });
 });
+
+// ── Connect banner (delayed + menu “Quick links”) ──
+let connectBannerTimer;
+function openConnectBanner() {
+  const el = document.getElementById('connectBanner');
+  if (!el) return;
+  clearTimeout(connectBannerTimer);
+  el.classList.add('is-open');
+  el.setAttribute('aria-hidden', 'false');
+}
+function dismissConnectBanner() {
+  const el = document.getElementById('connectBanner');
+  if (!el) return;
+  el.classList.remove('is-open');
+  el.setAttribute('aria-hidden', 'true');
+  try {
+    sessionStorage.setItem('adarshaConnectBannerDismissed', '1');
+  } catch (err) { /* ignore */ }
+}
+(function scheduleConnectBanner() {
+  const el = document.getElementById('connectBanner');
+  if (!el) return;
+  let dismissed = false;
+  try {
+    dismissed = sessionStorage.getItem('adarshaConnectBannerDismissed') === '1';
+  } catch (err) { dismissed = false; }
+  if (!dismissed) connectBannerTimer = setTimeout(openConnectBanner, 4500);
+})();
 
 // ── Admission Form → WhatsApp ──
 function submitAdmission(e) {
